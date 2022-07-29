@@ -3,10 +3,17 @@
     "version": "1.0",
     "description": "Analyzes favicon colors and replaces them with a circle of the most prominent one",
     "manifest_version": 2,
-    "background": {
-        "scripts": [
-            "background.js"
-        ],
-        "persistent": false
-    }
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content-scripts.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": [
+        "tabs",
+        "storage",
+        "http://*/",
+        "https://*/"
+    ]
 }
